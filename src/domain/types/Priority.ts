@@ -1,0 +1,1 @@
+export declare type PRIORITY =  'low' | 'medium' | 'high';

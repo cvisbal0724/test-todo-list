@@ -1,0 +1,1 @@
+export declare type STATUS = 'ok' | 'success' | 'warning' | 'error' | 'info';
