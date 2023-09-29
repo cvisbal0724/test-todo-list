@@ -1,5 +1,5 @@
 import { TaskEntity } from "../../domain/entities/TaskEntity";
-import { GenericRepository } from "./base/GenericRepository";
+import { GenericRepository } from "./bases/GenericRepository";
 
 export class TaskRepository extends GenericRepository<TaskEntity> {
 
