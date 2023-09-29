@@ -1,8 +1,7 @@
-import { IRead } from "../../../domain/interfaces/Base/IRead";
+import { IWrite } from "../../../domain/interfaces/bases/IWrite";
 import { Http } from '../../../domain/http/Http';
-import { IWrite } from "../../../domain/interfaces/Base/IWrite";
 
-export class GenericRepository<T> implements IWrite<T>, IRead<T> {
+export class WriteRepository<T> implements IWrite<T> {
 
     _url = '';
     constructor() {
@@ -20,13 +19,4 @@ export class GenericRepository<T> implements IWrite<T>, IRead<T> {
     async delete(id: string): Promise<T> {
         return Http.delete<T>(`${this._url}/id`);
     }
-
-    async getAll(param: any): Promise<T[]> {
-        return Http.get<T[]>(this._url, param);
-    }
-
-    async getById(id: string): Promise<T> {
-        return Http.get<T>(`${this._url}/id`);
-    }
-
 }

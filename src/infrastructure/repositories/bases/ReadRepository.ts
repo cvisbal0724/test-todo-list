@@ -1,4 +1,4 @@
-import { IRead } from "../../../domain/interfaces/Base/IRead";
+import { IRead } from "../../../domain/interfaces/bases/IRead";
 import { Http } from '../../../domain/http/Http';
 
 export class ReadRepository<T> implements IRead<T> {
