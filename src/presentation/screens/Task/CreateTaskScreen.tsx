@@ -1,7 +1,7 @@
 import React from "react";
 import { Platform, StyleSheet, View, Text } from "react-native";
 
-export const TaskScreen = (props: any) => {
+export const CreateTaskScreen = (props: any) => {
 
     return (
         <View style={styles.container}>
