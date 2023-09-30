@@ -1,4 +1,4 @@
-import { STATUS } from "../types/Status";
+import { STATUS } from "../../types/Status";
 
 export interface IResponse<T> {
     status: STATUS;

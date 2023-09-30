@@ -1,5 +1,5 @@
 import React from "react";
-import { ITaskContext } from "../../domain/interfaces/ITaskContext";
+import { ITaskContext } from "../../domain/interfaces/context/ITaskContext";
 import { TaskEntity } from "../../domain/entities/TaskEntity";
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import { IResponse } from '../interfaces/IResponse';
-import { Config } from './../config/Config';
+import { IResponse } from '../../domain/interfaces/response/IResponse';
+import { Config } from '../../domain/config/Config';
 
 export class Http {
 

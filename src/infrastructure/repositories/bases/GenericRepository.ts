@@ -1,5 +1,5 @@
 import { IRead } from "../../../domain/interfaces/bases/IRead";
-import { Http } from '../../../domain/http/Http';
+import { Http } from '../../http/Http';
 import { IWrite } from "../../../domain/interfaces/bases/IWrite";
 
 export class GenericRepository<T> implements IWrite<T>, IRead<T> {

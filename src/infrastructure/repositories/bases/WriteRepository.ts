@@ -1,5 +1,5 @@
 import { IWrite } from "../../../domain/interfaces/bases/IWrite";
-import { Http } from '../../../domain/http/Http';
+import { Http } from '../../http/Http';
 
 export class WriteRepository<T> implements IWrite<T> {
 
