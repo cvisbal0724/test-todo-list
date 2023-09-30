@@ -1,45 +1,49 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Switch, Button, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet, Alert } from 'react-native';
 import { Layout } from "../../components/Layout";
 import { PRIORITY } from './../../../domain/types/Priority';
-import DateTimePicker from '@react-native-community/datetimepicker';
 import { RadioButton } from 'react-native-paper';
 import { CustomInput } from "../../components/CustomInput";
 import { CustomDatePicker } from "../../components/CustomDatePicker";
+import { ButtonStyles } from "./../../styles/ButtonStyle";
+import { TaskContext } from "../../../domain/context/TaskContext";
 
 
 export const CreateTaskScreen = (props: any) => {
 
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [isCompleted, setIsCompleted] = useState(false);
+  const [completed, setCompleted] = useState(false);
   const [dueDate, setDueDate] = useState<Date>(new Date());
   const [priority, setPriority] = useState<PRIORITY>('low');
+  const { create } = React.useContext(TaskContext);
 
-  const handleDateSelection = async () => {
-    try {
-      // const { action, year, month, day } = await DatePickerAndroid.open({
-      //   date: dueDate || new Date(),
-      // });
-
-      // if (action !== DatePickerAndroid.dismissedAction) {
-      //   const selectedDate = new Date(year, month, day);
-      //   setDueDate(selectedDate);
-      // }
-    } catch (error) {
-      // console.warn('Error al abrir el selector de fecha:', error.message);
+  const handleSubmit = async () => {
+    const result = await create({
+      name,
+      description,
+      completed: false,
+      priority,
+      dueDate
+    });    
+    if (result.success) {
+      Alert.alert('Success', result.message);
+      resetFields();
+      props.navigation.goBack();
+    } else {
+      Alert.alert('Error', 'The task could not be created.');
     }
   };
 
-  const handleSubmit = () => {
-    console.log('Descripción:', description);
-    console.log('Completada:', isCompleted);
-    console.log('Fecha límite:', dueDate);
-    console.log('Prioridad:', priority);
-  };
+  const resetFields = () => {
+    setName('');
+    setDescription('');
+    setDueDate(new Date());
+    setPriority('low');
+  }
 
   return (
-    
+
     <Layout>
 
 
@@ -47,13 +51,8 @@ export const CreateTaskScreen = (props: any) => {
 
       <CustomInput multiline={true} label="Description" value={description} onChangeText={(text) => setDescription(text)}></CustomInput>
 
-<CustomDatePicker label="Due Date" value={dueDate} onChangeDate={(value) => setDueDate(value)}/>
-      {/* <View style={styles.dateContainer}>
-        <Text style={styles.label}>Due Date</Text>
-        <Button title="Seleccionar Fecha" onPress={handleDateSelection} />
-        {dueDate && <Text>{dueDate.toDateString()}</Text>}
-      </View> */}
-
+      <CustomDatePicker label="Due Date" value={dueDate} onChangeDate={(value) => setDueDate(value)} />
+     
       <Text style={styles.label}>Prioridad</Text>
 
       <RadioButton.Group onValueChange={(value) => setPriority(value as PRIORITY)} value={priority}>
@@ -62,7 +61,7 @@ export const CreateTaskScreen = (props: any) => {
         <RadioButton.Item label="Low" value="low" />
       </RadioButton.Group>
 
-      <Button title="Guardar Tarea" onPress={handleSubmit} />
+      <Button title="Create task" onPress={handleSubmit} />
     </Layout>
   );
 }

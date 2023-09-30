@@ -1,27 +1,35 @@
 import React from "react";
 import { ITaskContext } from "../../domain/interfaces/context/ITaskContext";
 import { TaskEntity } from "../../domain/entities/TaskEntity";
-
+import { TaskRepository } from './../repositories/TaskRepository';
 
 export const UseTaskMemo = () =>  {
 
  return React.useMemo(() => ({
-    getAll: async (param: any): Promise<TaskEntity[]> => {
-        return {} as any;
+    getAll: async (param: any) => {
+        const objTask = new TaskRepository<TaskEntity[]>();
+        return await objTask.getAll(param);
     },
-    getById: async (id: string): Promise<TaskEntity> => {
-        console.log({id});
-        return {} as any;
+    getById: async (id: string) => {
+        const objTask = new TaskRepository<TaskEntity>();
+        return await objTask.getById(id);
     },
-    create: async (entity: TaskEntity): Promise<TaskEntity> => {
-        return {} as any;
+    create: async (entity: TaskEntity) => {
+        const objTask = new TaskRepository<TaskEntity>();
+        return await objTask.create(entity);
     },
-    update: async (id: string, entity: TaskEntity): Promise<TaskEntity> => {
-        return {} as any;
+    update: async (id: string, entity: TaskEntity) => {
+        const objTask = new TaskRepository<TaskEntity>();
+        return await objTask.update(id, entity);
     },
-    delete: async (id: string): Promise<TaskEntity> => {
-        return {} as any;
-    }
+    remove: async (id: string) => {
+        const objTask = new TaskRepository<TaskEntity>();
+        return await objTask.delete(id);
+    },
+    complete: async (id: string, completed: boolean) => {
+        const objTask = new TaskRepository<TaskEntity>();
+        return await objTask.complete(id, completed);
+    },
   } as ITaskContext<TaskEntity>),
     []
   )

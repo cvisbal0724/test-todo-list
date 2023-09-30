@@ -1,7 +1,7 @@
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { DateTimePickerAndroid } from "@react-native-community/datetimepicker";
 import { IDatePicker } from "../../domain/interfaces/components/IDatePicker";
-import { SafeAreaView } from "react-native-safe-area-context";
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 export const CustomDatePicker = (props: IDatePicker) => {
 
@@ -33,12 +33,16 @@ export const CustomDatePicker = (props: IDatePicker) => {
                 {props.label}
             </Text>
             <View style={styles.container}>
-                <SafeAreaView>
-                    <Button onPress={showDatepicker} title="Show date picker!" />
-                    <Button onPress={showTimepicker} title="Show time picker!" />
-                    <Text>selected: {props.value.toLocaleString()}</Text>
-                </SafeAreaView>
-
+            <View style={styles.containerPicker}>
+                <View style={styles.columnPicker}>
+                    <TouchableOpacity onPress={showDatepicker} >
+                        <Ionicons name="calendar-outline" size={props.iconSize ?? 32} color={props.iconColor ?? 'gray'} />
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.columnPicker}>
+                    <Text>{props.value.toLocaleDateString()}</Text>
+                </View>
+            </View>
             </View>
         </View>
 
@@ -68,5 +72,16 @@ const styles = StyleSheet.create({
     label: {
         fontSize: 16,
         marginBottom: 8,
+    },
+    containerPicker: {
+        flexDirection: 'row', // Esto coloca las columnas una al lado de la otra
+        justifyContent: 'space-between', // Esto separa las columnas de manera uniforme
+        paddingHorizontal: 16, // Espacio horizontal para separación
+    },
+    columnPicker: {
+        flex: 1,
+        alignItems: 'flex-start', 
+        justifyContent: 'center',
+        verticalAlign: 'middle'
     },
 });

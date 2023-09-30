@@ -1,14 +1,20 @@
-import { TaskEntity } from "../../domain/entities/TaskEntity";
+import { IResponse } from "../../domain/interfaces/response/IResponse";
+import { Http } from "../http/Http";
 import { GenericRepository } from "./bases/GenericRepository";
+import { IOtheMethod } from "../../domain/interfaces/bases/IOtheMethod";
 
-export class TaskRepository extends GenericRepository<TaskEntity> {
+export class TaskRepository<T> extends GenericRepository<T> implements IOtheMethod<T> {
 
     /**
      *
      */
     constructor() {
         super();    
-        this._url = '';    
+        this._url = '/api/task.php';    
+    }
+
+    async complete(id: string, completed: boolean): Promise<IResponse<T>> {
+        return Http.post<T>(`${this._url}/complete`, {id, completed});
     }
 
 }

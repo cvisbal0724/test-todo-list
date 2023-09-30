@@ -1,81 +1,96 @@
-import React from "react";
-import { Pressable, StyleSheet, Text, TouchableOpacity, View } from "react-native"
+import React, { useState } from "react";
+import { Alert, Text, TouchableOpacity, View } from "react-native"
 import { TaskContext } from '../../../domain/context/TaskContext';
 import { Layout } from "../../components/Layout";
 import { ToDoListStyles } from './../../styles/ToDoListStyle';
 import { SwipeListView } from "react-native-swipe-list-view";
 import { ButtonStyles } from "../../styles/ButtonStyle";
-
-const data = [
-    { id: '1', text: 'Comprar leche', completed: false },
-    { id: '2', text: 'Hacer ejercicio', completed: false },
-    { id: '3', text: 'Leer un libro', completed: true },
-    { id: '4', text: 'Comprar leche', completed: false },
-    { id: '5', text: 'Hacer ejercicio', completed: false },
-    { id: '6', text: 'Leer un libro', completed: true },
-    { id: '7', text: 'Comprar leche', completed: false },
-    { id: '8', text: 'Hacer ejercicio', completed: false },
-    { id: '9', text: 'Leer un libro', completed: true },
-    { id: '10', text: 'Comprar leche', completed: false },
-    { id: '11', text: 'Hacer ejercicio', completed: false },
-    { id: '12', text: 'Leer un libro', completed: true },
-    { id: '13', text: 'Comprar leche', completed: false },
-    { id: '14', text: 'Hacer ejercicio', completed: false },
-    { id: '15', text: 'Leer un libro', completed: true },
-    { id: '16', text: 'Comprar leche', completed: false },
-    { id: '17', text: 'Hacer ejercicio', completed: false },
-    { id: '18', text: 'Leer un libro', completed: true },
-    { id: '19', text: 'Comprar leche', completed: false },
-    { id: '20', text: 'Hacer ejercicio', completed: false },
-    { id: '21', text: 'Leer un libro', completed: true },
-    // Agrega más tareas según sea necesario
-];
+import { TaskEntity } from "../../../domain/entities/TaskEntity";
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 export const ToDoListScreen = (props: any) => {
 
-    const { getById } = React.useContext(TaskContext);
+    const [data, setData] = useState<TaskEntity[]>();
+    const { getAll, complete, remove } = React.useContext(TaskContext);
+
+    const getAllTask = async () => {
+        const result = await getAll({});
+        setData(result.data);
+    }
+
+    const toggleComplete = async (taskId: string, completed: boolean) => {
+        try {
+            const result = await complete(taskId, !completed);
+            await getAllTask();
+            // refreshData(taskId, result.data);
+        } catch (error) {
+            console.log({ error });
+        }
+    };
+
+    const deleteTask = async (itemId: string) => {
+        Alert.alert(
+            'Remove Task',
+            `Do you want to remove task #${itemId}?`,
+            [
+                {
+                    text: 'Yes', onPress: async () => {
+                        await remove(itemId);
+                        await getAllTask();
+                    }
+                },
+                {
+                    text: 'No',
+                    onPress: () => console.log('No Pressed'),
+                    style: 'cancel',
+                },
+            ],
+            { cancelable: false }
+            //clicking out side of alert will not cancel
+        );
+    }
+
+
+    const refreshData = async (taskId: string, task: any) => {
+        data?.map((obj: any, i: number) => {
+            if (obj.id == taskId)
+                data[i]['completed'] = task.completed;
+        });
+        setData([...data as any]);
+    }
 
     React.useEffect(() => {
         const bootstrapAsync = async () => {
+            await getAllTask();
         };
         bootstrapAsync();
     }, []);
 
-    const renderItem = ({ item }: any) => (
+    const renderItem = (data: { item: TaskEntity }) => (
         <View style={[ToDoListStyles.taskContainer, ToDoListStyles.item]}>
-            <Text style={ToDoListStyles.taskText}>{item.text}</Text>
+            <Text style={ToDoListStyles.taskText}>{data.item.name}</Text>
+            <Text style={ToDoListStyles.taskText}>{data.item.name}</Text>
             <TouchableOpacity
-                style={[ToDoListStyles.completeButton, item.completed && ToDoListStyles.completedTask]}
-                onPress={() => toggleComplete(item.id)}>
-                <Text style={ToDoListStyles.completeButtonText}>✓</Text>
+                style={[ToDoListStyles.completeButton, data.item.completed && ToDoListStyles.completedTask]}
+                onPress={() => toggleComplete(data.item.id.toString(), data.item.completed)}>
+                <Text style={[ToDoListStyles.completeButtonText, data.item.completed && ToDoListStyles.completeTaskColor]}>✓</Text>
             </TouchableOpacity>
         </View>
     );
 
-    const renderHiddenItem = ({ item }: any) => (
+    const renderHiddenItem = (data: { item: TaskEntity }) => (
         <View style={ButtonStyles.buttonFlexEnd}>
-            <TouchableOpacity
-                style={[ButtonStyles.buttonDanger, ButtonStyles.buttonSwipe]}
-            >
-                <Text style={{ color: 'white' }}>Borrar</Text>
+            <TouchableOpacity onPress={() => deleteTask(data.item.id.toString())}
+                style={[ButtonStyles.buttonDanger, ButtonStyles.buttonSwipe]}>
+                <Ionicons name="trash" size={props.iconSize ?? 32} color={'white'} />
             </TouchableOpacity>
         </View>
     );
-
-    const handlePress = (itemId: string) => {
-        // Maneja la prensa del elemento aquí
-        console.log(`Elemento presionado con ID: ${itemId}`);
-    };
-
-
-    const toggleComplete = (taskId: string) => {
-        // Implementa la lógica para marcar una tarea como completada aquí
-    };
 
     return (
         <Layout>
-            
-            <SwipeListView data={data} 
+
+            <SwipeListView data={data}
                 renderItem={renderItem}
                 renderHiddenItem={renderHiddenItem}
                 rightOpenValue={-90}
@@ -83,7 +98,7 @@ export const ToDoListScreen = (props: any) => {
                 previewOpenValue={-40}
                 previewOpenDelay={1000}
                 keyExtractor={item => item.id.toString()} />
-           
+
         </Layout>
     )
 

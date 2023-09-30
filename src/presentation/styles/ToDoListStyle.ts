@@ -5,9 +5,9 @@ export const ToDoListStyles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: 16,
-        borderBottomWidth: 1,
-        borderBottomColor: '#ccc',
+        padding: 10,
+        borderWidth: 0.5,
+        borderColor: '#ccc'
     },
     taskText: {
         fontSize: 18,
@@ -23,14 +23,17 @@ export const ToDoListStyles = StyleSheet.create({
         borderColor: '#ccc',
     },
     completedTask: {
-        backgroundColor: 'green', // Cambia el color si la tarea está completada
-        borderColor: 'green',
+        backgroundColor: '#09a141',
+        borderColor: '#09a141',
+        color: '#fff',
+    },
+    completeTaskColor: {
+        color: '#fff',
     },
     completeButtonText: {
         fontSize: 18,
         color: '#333',
     },
-
     container: {
         flex: 1,
         backgroundColor: '#f7f7f7',

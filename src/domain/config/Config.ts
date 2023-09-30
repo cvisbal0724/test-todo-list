@@ -1,5 +1,5 @@
 export const Config = {
     useSystemColorMode: false,
     initialColorMode: "dark",
-    urlBase: ''
+    urlBase: 'https://estratesys.sisclog.com'
 };

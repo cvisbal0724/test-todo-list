@@ -1,7 +1,7 @@
 import { STATUS } from "../../types/Status";
 
 export interface IResponse<T> {
-    status: STATUS;
+    success: boolean;
     message: string;
     data: T;
 }
