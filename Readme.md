@@ -23,7 +23,7 @@ npm install or yarn install
 
 ### 3. Ejecutar el proyecto
 
-npx expo start
+npx expo start or yarn start
 
 ### 4. Abrir el proyecto en el emulador de Android o IOS presionando las teclas indicadas en la terminal
 
