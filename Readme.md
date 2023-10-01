@@ -37,16 +37,16 @@ La integración se realizó con axios, y se implementaron los siguientes método
 ## Capturas de pantalla de la aplicación en ejecución
 
 ### 1. Pantalla de inicio
-![Pantalla de inicio](/assets/screenshots/home.jpeg)
+![Pantalla de inicio](/assets/screenshots/home.jpeg =300x))
 
 ### 2. Pantalla de creación
-![Pantalla de creación](/assets/screenshots/create.jpeg)
+![Pantalla de creación](/assets/screenshots/create.jpeg =300x))
 
 ### 3. Pantalla de detalles
-![Pantalla de detalles](/assets/screenshots/detail.jpeg)
+![Pantalla de detalles](/assets/screenshots/detail.jpeg =300x))
 
 ### 4. Opción editar
-![Pantalla de detalles](/assets/screenshots/edit.jpeg)
+![Pantalla de detalles](/assets/screenshots/edit-option.jpeg =300x))
 
 ### 4. Opción remover
-![Pantalla de detalles](/assets/screenshots/remove.mp4)
+![Pantalla de detalles](/assets/screenshots/remove.jpeg =300x))
