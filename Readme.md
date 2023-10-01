@@ -46,17 +46,20 @@ La integración se realizó con axios, y se implementaron los siguientes método
 
 ## Capturas de pantalla de la aplicación en ejecución
 
-### 1. Pantalla de inicio
+### 1. Splash
+[<img src="/assets/screenshots/splash.jpeg" width="250"/>](image.png)
+
+### 2. Pantalla de inicio
 [<img src="/assets/screenshots/home.jpeg" width="250"/>](image.png)
 
-### 2. Pantalla de creación
+### 3. Pantalla de creación
 [<img src="/assets/screenshots/create.jpeg" width="250"/>](image.png)
 
-### 3. Pantalla de detalles
+### 4. Pantalla de detalles
 [<img src="/assets/screenshots/detail.jpeg" width="250"/>](image.png)
 
-### 4. Opción editar
-[<img src="/assets/screenshots/edit-option.jpeg" width="250"/>](image.png)
+### 5. Opción editar
+[<img src="/assets/screenshots/edit-option2.jpeg" width="250"/>](image.png)
 
-### 4. Opción remover
+### 6. Opción remover
 [<img src="/assets/screenshots/remove.jpeg" width="250"/>](image.png)

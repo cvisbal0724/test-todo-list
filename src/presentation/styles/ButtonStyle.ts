@@ -37,11 +37,11 @@ export const ButtonStyles = StyleSheet.create({
     buttonSwipe: {
         // borderTopRightRadius: 8,  
         // borderBottomRightRadius: 8, 
-        borderRadius: 8,     
-        width: 75,
+        borderRadius: 50,     
+        width: 50,
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100%',
+        height: '50%',
     },
     buttonFlexEnd: {
         flex: 1, 
