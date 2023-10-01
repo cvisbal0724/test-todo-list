@@ -22,8 +22,8 @@ export class GenericRepository<T> implements IWrite<T>, IRead<T> {
         return Http.delete<T>(`${this._url}/${id}`);
     }
 
-    async getAll(param: any): Promise<IResponse<T>> {
-        return Http.get<T>(this._url, param);
+    async getAll(param: any): Promise<IResponse<T[]>> {
+        return Http.get<T[]>(this._url, param);
     }
 
     async getById(id: string): Promise<IResponse<T>> {
