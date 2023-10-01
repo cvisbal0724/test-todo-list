@@ -34,7 +34,7 @@ npx expo start
 
 Escanear códigos QR desde tu celular iOS o Android
 
-## Especificacion técnicas de la prueba
+## Especificacion técnica de la prueba
 
 La prueba se ha desarrollado utilizando la tecnología React Native con TypeScript como lenguaje de programación, se ha aplicado una arquitectura limpia y se ha seguido el patrón de diseño SOLID para garantizar la calidad y la mantenibilidad del código.
 
