@@ -17,4 +17,8 @@ export class TaskRepository<T> extends GenericRepository<T> implements IOtheMeth
         return Http.post<T>(`${this._url}/complete`, {id, completed});
     }
 
+    async report(): Promise<IResponse<T>> {
+        return Http.get<T>(`${this._url}/report`);
+    }
+
 }

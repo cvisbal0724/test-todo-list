@@ -1,7 +1,9 @@
 import { StyleSheet } from "react-native";
+import { $primary } from "../../domain/constants/Colors";
 
 export const ToDoListStyles = StyleSheet.create({
     taskContainer: {
+        flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -10,7 +12,10 @@ export const ToDoListStyles = StyleSheet.create({
         borderColor: '#ccc'
     },
     taskText: {
-        fontSize: 18,
+        fontSize: 14,
+        flexWrap: 'wrap',
+        flexDirection: 'column',
+        flex: 0.3,
     },
     completeButton: {
         backgroundColor: '#fff',
@@ -23,8 +28,8 @@ export const ToDoListStyles = StyleSheet.create({
         borderColor: '#ccc',
     },
     completedTask: {
-        backgroundColor: '#09a141',
-        borderColor: '#09a141',
+        backgroundColor: $primary,
+        borderColor: $primary,
         color: '#fff',
     },
     completeTaskColor: {

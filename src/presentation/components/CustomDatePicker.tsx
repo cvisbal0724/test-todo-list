@@ -2,6 +2,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { DateTimePickerAndroid } from "@react-native-community/datetimepicker";
 import { IDatePicker } from "../../domain/interfaces/components/IDatePicker";
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { $primary } from "../../domain/constants/Colors";
 
 export const CustomDatePicker = (props: IDatePicker) => {
 
@@ -36,7 +37,7 @@ export const CustomDatePicker = (props: IDatePicker) => {
             <View style={styles.containerPicker}>
                 <View style={styles.columnPicker}>
                     <TouchableOpacity onPress={showDatepicker} >
-                        <Ionicons name="calendar-outline" size={props.iconSize ?? 32} color={props.iconColor ?? 'gray'} />
+                        <Ionicons name="calendar-outline" size={props.iconSize ?? 32} color={props.iconColor ?? $primary} />
                     </TouchableOpacity>
                 </View>
                 <View style={styles.columnPicker}>

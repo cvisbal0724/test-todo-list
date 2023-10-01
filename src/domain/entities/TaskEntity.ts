@@ -1,7 +1,7 @@
 import { PRIORITY } from "../types/Priority";
 
 export type TaskEntity = {
-    id?: number; // Un identificador único para cada tarea
+    id?: string; // Un identificador único para cada tarea
     name: string; // El nombre de la tarea
     description: string; // La descripción de la tarea
     completed: boolean; // Un indicador de si la tarea está completada o no

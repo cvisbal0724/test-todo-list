@@ -3,4 +3,6 @@ export interface IInputText {
     onChangeText: (s: any) => void;
     value?: string;
     multiline?: boolean;
+    errorValidation?: boolean;
+    errorMessage?: string;
 }

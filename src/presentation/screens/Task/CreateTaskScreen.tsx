@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-import { View, Text, Button, StyleSheet, Alert } from 'react-native';
+import { Text, StyleSheet, Alert } from 'react-native';
 import { Layout } from "../../components/Layout";
 import { PRIORITY } from './../../../domain/types/Priority';
 import { RadioButton } from 'react-native-paper';
 import { CustomInput } from "../../components/CustomInput";
 import { CustomDatePicker } from "../../components/CustomDatePicker";
-import { ButtonStyles } from "./../../styles/ButtonStyle";
 import { TaskContext } from "../../../domain/context/TaskContext";
+import { CustomButton } from "../../components/CustomButton";
+import { $primary } from "../../../domain/constants/Colors";
 
 
 export const CreateTaskScreen = (props: any) => {
 
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [completed, setCompleted] = useState(false);
   const [dueDate, setDueDate] = useState<Date>(new Date());
   const [priority, setPriority] = useState<PRIORITY>('low');
   const { create } = React.useContext(TaskContext);
@@ -46,7 +46,6 @@ export const CreateTaskScreen = (props: any) => {
 
     <Layout>
 
-
       <CustomInput label="Name" value={name} onChangeText={(text) => setName(text)}></CustomInput>
 
       <CustomInput multiline={true} label="Description" value={description} onChangeText={(text) => setDescription(text)}></CustomInput>
@@ -56,16 +55,15 @@ export const CreateTaskScreen = (props: any) => {
       <Text style={styles.label}>Prioridad</Text>
 
       <RadioButton.Group onValueChange={(value) => setPriority(value as PRIORITY)} value={priority}>
-        <RadioButton.Item label="High" value="high" />
-        <RadioButton.Item label="Medium" value="medium" />
-        <RadioButton.Item label="Low" value="low" />
+        <RadioButton.Item label="High" color={$primary} value="high"/>
+        <RadioButton.Item label="Medium" color={$primary} value="medium"/>
+        <RadioButton.Item label="Low" color={$primary} value="low"/>
       </RadioButton.Group>
 
-      <Button title="Create task" onPress={handleSubmit} />
+      <CustomButton label="Create Task" onPress={handleSubmit}></CustomButton>
     </Layout>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
