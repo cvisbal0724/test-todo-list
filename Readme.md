@@ -25,11 +25,14 @@ npm install or yarn install
 
 npx expo start
 
-
 ### 4. Abrir el proyecto en el emulador de Android o IOS presionando las teclas indicadas en la terminal
 
 › Press a │ open Android
 › Press i │ open iOS simulator
+
+### 5. Puedes utilizar expo go
+
+Escanear códigos QR desde tu celular iOS o Android
 
 ## Integración con la api
 
