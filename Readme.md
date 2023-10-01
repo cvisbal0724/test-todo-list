@@ -10,7 +10,11 @@
 
 ### 1. Clonar el repositorio
 
-git clone https://github.com/cvisbal0724/test-todo-list.git or git clone git@github.com:cvisbal0724/test-todo-list.git
+git clone https://github.com/cvisbal0724/test-todo-list.git 
+
+or
+
+git clone git@github.com:cvisbal0724/test-todo-list.git
 
 ### 2. Instalar dependencias
 
