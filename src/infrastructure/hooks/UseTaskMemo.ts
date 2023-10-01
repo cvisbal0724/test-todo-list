@@ -7,8 +7,7 @@ export const UseTaskMemo = () =>  {
 
  return React.useMemo(() => ({
     getAll: async (param: any) => {
-        const objTask = new TaskRepository<TaskEntity[]>();
-        console.log({param})
+        const objTask = new TaskRepository<TaskEntity>();
         return await objTask.getAll(param);
     },
     getById: async (id: string) => {
@@ -25,7 +24,7 @@ export const UseTaskMemo = () =>  {
     },
     remove: async (id: string) => {
         const objTask = new TaskRepository<TaskEntity>();
-        return await objTask.delete(id);
+        return await objTask.remove(id);
     },
     complete: async (id: string, completed: boolean) => {
         const objTask = new TaskRepository<TaskEntity>();

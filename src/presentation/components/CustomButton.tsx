@@ -14,20 +14,20 @@ export const CustomButton = (props: IButton) => {
 
 const styles = StyleSheet.create({
     button: {
-        backgroundColor: $primary, // Color de fondo del botón
-        borderRadius: 20, // Bordes redondeados
-        paddingVertical: 12, // Espaciado vertical
-        paddingHorizontal: 24, // Espaciado horizontal
-        alignItems: 'center', // Alineación del contenido al centro
-        shadowColor: '#000', // Color de la sombra
-        shadowOffset: { width: 0, height: 2 }, // Desplazamiento de la sombra
-        shadowOpacity: 0.3, // Opacidad de la sombra
-        shadowRadius: 4, // Radio de la sombra
-        elevation: 4, // Elevación para la sombra (Android)
+        backgroundColor: $primary, 
+        borderRadius: 20, 
+        paddingVertical: 12, 
+        paddingHorizontal: 24, 
+        alignItems: 'center', 
+        shadowColor: '#000', 
+        shadowOffset: { width: 0, height: 2 }, 
+        shadowOpacity: 0.3, 
+        shadowRadius: 4, 
+        elevation: 4, 
     },
     buttonText: {
-        color: '#fff', // Color del texto
-        fontSize: 16, // Tamaño de fuente
-        fontWeight: 'bold', // Peso de la fuente en negrita
+        color: '#fff', 
+        fontSize: 16, 
+        fontWeight: 'bold', 
     },
 });

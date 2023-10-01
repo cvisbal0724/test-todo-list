@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { TouchableOpacity } from 'react-native';
 import { $primary } from '../../domain/constants/Colors';
+import { DetailScreen } from '../screens/task/DetailScreen';
 
 const StackMain = createStackNavigator();
 
@@ -32,6 +33,11 @@ export const MainNavigation = (props: any) => {
         <StackMain.Screen name="CreateTaskScreen" component={CreateTaskScreen} options={{
           cardOverlayEnabled: true,
           title: 'Create Task', 
+          headerTitleAlign: 'center'
+        }}/>
+        <StackMain.Screen name="EditTaskScreen" component={CreateTaskScreen} options={{
+          cardOverlayEnabled: true,
+          title: 'Edit Task', 
           headerTitleAlign: 'center'
         }}/>
       </StackMain.Group>

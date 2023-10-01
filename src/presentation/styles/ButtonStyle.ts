@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { $primary, $colorDanger } from '../../domain/constants/Colors';
+import { $primary, $colorDanger, $colorBlue, $colorGreen } from '../../domain/constants/Colors';
 
 export const ButtonStyles = StyleSheet.create({
     buttonPrimary: {
@@ -7,6 +7,12 @@ export const ButtonStyles = StyleSheet.create({
     },
     buttonDanger: {
         backgroundColor: $colorDanger,
+    },
+    buttonInfo: {
+        backgroundColor: $colorBlue,
+    },
+    buttonSuccess: {
+        backgroundColor: $colorGreen,
     },
     colorTransparent: {
         backgroundColor: 'transparent'
@@ -16,7 +22,7 @@ export const ButtonStyles = StyleSheet.create({
         alignSelf: 'center'
     },
     textColorRed: {
-        color: '#f02235'
+        color: $colorDanger,
     },
     textColorGreen: {
         color: 'green'

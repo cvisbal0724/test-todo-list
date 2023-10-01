@@ -34,16 +34,16 @@ export const CustomDatePicker = (props: IDatePicker) => {
                 {props.label}
             </Text>
             <View style={styles.container}>
-            <View style={styles.containerPicker}>
-                <View style={styles.columnPicker}>
-                    <TouchableOpacity onPress={showDatepicker} >
-                        <Ionicons name="calendar-outline" size={props.iconSize ?? 32} color={props.iconColor ?? $primary} />
-                    </TouchableOpacity>
+                <View style={styles.containerPicker}>
+                    <View style={styles.columnPicker}>
+                        <TouchableOpacity onPress={showDatepicker} >
+                            <Ionicons name="calendar-outline" size={props.iconSize ?? 32} color={props.iconColor ?? $primary} />
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.columnPicker}>
+                        <Text>{props?.value?.toLocaleDateString()}</Text>
+                    </View>
                 </View>
-                <View style={styles.columnPicker}>
-                    <Text>{props.value.toLocaleDateString()}</Text>
-                </View>
-            </View>
             </View>
         </View>
 
@@ -75,13 +75,13 @@ const styles = StyleSheet.create({
         marginBottom: 8,
     },
     containerPicker: {
-        flexDirection: 'row', // Esto coloca las columnas una al lado de la otra
-        justifyContent: 'space-between', // Esto separa las columnas de manera uniforme
-        paddingHorizontal: 16, // Espacio horizontal para separación
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingHorizontal: 16,
     },
     columnPicker: {
         flex: 1,
-        alignItems: 'flex-start', 
+        alignItems: 'flex-start',
         justifyContent: 'center',
         verticalAlign: 'middle'
     },

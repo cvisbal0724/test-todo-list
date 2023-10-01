@@ -18,7 +18,7 @@ export class GenericRepository<T> implements IWrite<T>, IRead<T> {
         return Http.put<T>(`${this._url}/${id}`, entity);
     }
 
-    async delete(id: string): Promise<IResponse<T>> {
+    async remove(id: string): Promise<IResponse<T>> {
         return Http.delete<T>(`${this._url}/${id}`);
     }
 
@@ -29,5 +29,6 @@ export class GenericRepository<T> implements IWrite<T>, IRead<T> {
     async getById(id: string): Promise<IResponse<T>> {
         return Http.get<T>(`${this._url}/${id}`);
     }
+
 
 }
