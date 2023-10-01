@@ -1,15 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Text, StyleSheet, Alert, Modal, TouchableOpacity, View, Pressable } from 'react-native';
-import { Layout } from "../../components/Layout";
-import { PRIORITY } from './../../../domain/types/Priority';
-import { RadioButton } from 'react-native-paper';
-import { CustomInput } from "../../components/CustomInput";
-import { CustomDatePicker } from "../../components/CustomDatePicker";
-import { TaskContext } from "../../../domain/context/TaskContext";
-import { CustomButton } from "../../components/CustomButton";
+import { PRIORITY } from '../../../domain/types/Priority';
 import { $primary } from "../../../domain/constants/Colors";
 import { ToDoListStyles } from "../../styles/ToDoListStyle";
-import { TaskEntity } from "../../../domain/entities/TaskEntity";
 
 export const DetailScreen = ({ isVisible, closeModal, data }: any) => {
 

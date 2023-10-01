@@ -1,12 +1,11 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { CreateTaskScreen } from '../screens/task/CreateTaskScreen';
+import { CreateTaskScreen } from '../screens/tasks/CreateTaskScreen';
 import { ToDoListScreen } from '../screens/to-do/ToDoListScreen';
 import { useNavigation } from '@react-navigation/native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { TouchableOpacity } from 'react-native';
 import { $primary } from '../../domain/constants/Colors';
-import { DetailScreen } from '../screens/task/DetailScreen';
 
 const StackMain = createStackNavigator();
 
@@ -21,7 +20,7 @@ export const MainNavigation = (props: any) => {
             title: 'To-Do List',
             headerTitleAlign: 'center',
             headerRight: () => (              
-              <TouchableOpacity onPress={() => navigation.navigate('CreateTaskScreen')}
+              <TouchableOpacity onPress={() => navigation.navigate('CreateTaskScreen', {data: {}})}
               style={{
                 marginEnd: 10}}>
                 <Ionicons name="add-circle" size={props.iconSize ?? 32} color={$primary} />

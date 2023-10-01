@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Text, StyleSheet, Alert } from 'react-native';
+import { Text, Alert } from 'react-native';
 import { Layout } from "../../components/Layout";
-import { PRIORITY } from './../../../domain/types/Priority';
+import { PRIORITY } from '../../../domain/types/Priority';
 import { RadioButton } from 'react-native-paper';
 import { CustomInput } from "../../components/CustomInput";
 import { CustomDatePicker } from "../../components/CustomDatePicker";

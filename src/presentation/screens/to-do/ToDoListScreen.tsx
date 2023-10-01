@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Alert, Text, Touchable, TouchableHighlight, TouchableOpacity, View } from "react-native"
+import { Alert, Text, TouchableHighlight, TouchableOpacity, View } from "react-native"
 import { TaskContext } from '../../../domain/context/TaskContext';
 import { Layout } from "../../components/Layout";
 import { ToDoListStyles } from './../../styles/ToDoListStyle';
@@ -10,7 +10,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { useIsFocused } from "@react-navigation/native";
 import { CustomSearch } from "../../components/CustomSearch";
 import { CustomFilterButton } from "../../components/CustomFilterButton";
-import { DetailScreen } from "../task/DetailScreen";
+import { DetailScreen } from "../tasks/DetailScreen";
 
 export const ToDoListScreen = (props: any) => {
 
