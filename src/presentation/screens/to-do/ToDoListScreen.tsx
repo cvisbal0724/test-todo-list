@@ -11,6 +11,7 @@ import { useIsFocused } from "@react-navigation/native";
 import { CustomSearch } from "../../components/CustomSearch";
 import { CustomFilterButton } from "../../components/CustomFilterButton";
 import { DetailScreen } from "../tasks/DetailScreen";
+import { $primary } from "../../../domain/constants/Colors";
 
 export const ToDoListScreen = (props: any) => {
 
@@ -151,7 +152,7 @@ export const ToDoListScreen = (props: any) => {
     const renderHiddenItem = (data: { item: TaskEntity }) => (
         <View style={ButtonStyles.buttonFlexEnd}>
             <TouchableOpacity onPress={() => showEdit(data.item)}
-                style={[ButtonStyles.buttonSuccess, ButtonStyles.buttonSwipe]}>
+                style={[{backgroundColor: $primary}, ButtonStyles.buttonSwipe]}>
                 <Ionicons name="pencil" size={props.iconSize ?? 32} color={'white'} />
             </TouchableOpacity>
         </View>
