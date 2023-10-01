@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Text, StyleSheet, Alert } from 'react-native';
 import { Layout } from "../../components/Layout";
 import { PRIORITY } from './../../../domain/types/Priority';
@@ -8,6 +8,7 @@ import { CustomDatePicker } from "../../components/CustomDatePicker";
 import { TaskContext } from "../../../domain/context/TaskContext";
 import { CustomButton } from "../../components/CustomButton";
 import { $primary } from "../../../domain/constants/Colors";
+import { IInputText } from "../../../domain/interfaces/components/IInputText";
 
 
 export const CreateTaskScreen = (props: any) => {
@@ -16,9 +17,15 @@ export const CreateTaskScreen = (props: any) => {
   const [description, setDescription] = useState('');
   const [dueDate, setDueDate] = useState<Date>(new Date());
   const [priority, setPriority] = useState<PRIORITY>('low');
+  const [validateName, setValidateName] = useState(false);
+  const [validateDescription, setValidateDescription] = useState(false);
   const { create } = React.useContext(TaskContext);
 
   const handleSubmit = async () => {
+    setValidateName(!name);
+    setValidateDescription(!description);
+    if (!name || !description) 
+      return false;
     const result = await create({
       name,
       description,
@@ -46,9 +53,11 @@ export const CreateTaskScreen = (props: any) => {
 
     <Layout>
 
-      <CustomInput label="Name" value={name} onChangeText={(text) => setName(text)}></CustomInput>
+      <CustomInput errorValidation={validateName} label="Name *" value={name} 
+      onChangeText={(text) => setName(text)} errorMessage="Name is required"></CustomInput>
 
-      <CustomInput multiline={true} label="Description" value={description} onChangeText={(text) => setDescription(text)}></CustomInput>
+      <CustomInput errorValidation={validateDescription}  multiline={true} label="Description *" value={description} 
+      onChangeText={(text) => setDescription(text)} errorMessage="Description is required"></CustomInput>
 
       <CustomDatePicker label="Due Date" value={dueDate} onChangeDate={(value) => setDueDate(value)} />
      

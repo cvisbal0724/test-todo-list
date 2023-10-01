@@ -11,6 +11,7 @@ return (
         <View style={styles.container}>
         
         <TextInput
+            ref={props.ref}
             style={styles.input}
             value={props.value}
             multiline={props.multiline}
