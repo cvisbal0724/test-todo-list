@@ -42,6 +42,8 @@ export const DetailScreen = ({ isVisible, closeModal, data }: any) => {
                         <Text style={styles.modalTextNormal}>
                             <Text style={styles.modalText}>Description:</Text> {description}</Text>
                         <Text style={styles.modalTextNormal}>
+                            <Text style={styles.modalText}>Due Date:</Text> {dueDate?.toString()}</Text>
+                        <Text style={styles.modalTextNormal}>
                             <Text style={styles.modalText}>Is Completed:</Text> {completed ? 'Yes' : 'No'}</Text>
                         <Text style={styles.modalText}>
                             Priority:
