@@ -57,8 +57,8 @@ La integración se realizó con axios, y se implementaron los siguientes método
 ### 4. Pantalla de detalles
 [<img src="/assets/screenshots/detail.jpeg" width="250"/>](image.png)
 
-### 5. Opción editar
-[<img src="/assets/screenshots/edit-option2.jpeg" width="250"/>](image.png)
+### 5. Opciones
+[<img src="/assets/screenshots/options.jpeg" width="250"/>](image.png)
 
 ### 6. Opción remover
 [<img src="/assets/screenshots/remove.jpeg" width="250"/>](image.png)
