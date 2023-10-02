@@ -9,31 +9,30 @@
 ## Instruccion de ejecución del proyecto React Native usando Expo
 
 ### 1. Clonar el repositorio
-
+```
 git clone https://github.com/cvisbal0724/test-todo-list.git 
-
+```
 or
-
+```
 git clone git@github.com:cvisbal0724/test-todo-list.git
-
+```
 ### 2. Instalar dependencias
-
+```
 npm install or yarn install
-
-
+```
 ### 3. Ejecutar el proyecto
-
+```
 npx expo start or yarn start
-
+```
 ### 4. Abrir el proyecto en el emulador de Android o IOS presionando las teclas indicadas en la terminal
-
+```
 › Press a │ open Android
 › Press i │ open iOS simulator
-
+```
 ### 5. Puedes utilizar expo go
-
+```
 Escanear códigos QR desde tu celular iOS o Android
-
+```
 ## Especificacion técnica de la prueba
 
 La prueba se ha desarrollado utilizando la tecnología React Native con TypeScript como lenguaje de programación, se ha aplicado una arquitectura limpia y se ha seguido el patrón de diseño SOLID para garantizar la calidad y la mantenibilidad del código.

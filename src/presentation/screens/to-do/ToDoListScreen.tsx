@@ -117,7 +117,7 @@ export const ToDoListScreen = (props: any) => {
 
     const renderItem = (data: { item: TaskEntity }) => (
         <TouchableHighlight style={{ backgroundColor: 'white', borderRadius: 8 }}
-            onPress={() => showDetail(data.item)} delayLongPress={1000} onLongPress={() => deleteTask(data.item.id as string)}
+            onPress={() => showDetail(data.item)} delayLongPress={500} onLongPress={() => deleteTask(data.item.id as string)}
             underlayColor="#eaeaea">
             <View style={[ToDoListStyles.taskContainer, ToDoListStyles.item]}>
                 <View>
@@ -151,6 +151,10 @@ export const ToDoListScreen = (props: any) => {
 
     const renderHiddenItem = (data: { item: TaskEntity }) => (
         <View style={ButtonStyles.buttonFlexEnd}>
+            <TouchableOpacity onPress={() => deleteTask(data.item.id as string)}
+                style={[ButtonStyles.buttonDanger, ButtonStyles.buttonSwipe]}>
+                <Ionicons name="trash" size={props.iconSize ?? 32} color={'white'} />
+            </TouchableOpacity>
             <TouchableOpacity onPress={() => showEdit(data.item)}
                 style={[ButtonStyles.buttonSuccess, ButtonStyles.buttonSwipe]}>
                 <Ionicons name="pencil" size={props.iconSize ?? 32} color={'white'} />
@@ -169,7 +173,7 @@ export const ToDoListScreen = (props: any) => {
                 ref={refSwipe}
                 renderItem={renderItem}
                 renderHiddenItem={renderHiddenItem}
-                rightOpenValue={-65}
+                rightOpenValue={-117}
                 previewRowKey={"0"}
                 previewOpenValue={-40}
                 previewOpenDelay={1000}

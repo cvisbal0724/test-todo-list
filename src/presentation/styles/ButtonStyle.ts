@@ -32,23 +32,23 @@ export const ButtonStyles = StyleSheet.create({
         width: 75,
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100%',
+        height: '100%'
     },
     buttonSwipe: {
-        // borderTopRightRadius: 8,  
-        // borderBottomRightRadius: 8, 
         borderRadius: 50,     
         width: 50,
         justifyContent: 'center',
         alignItems: 'center',
         height: '50%',
+        marginStart: 4
     },
     buttonFlexEnd: {
+        flexDirection: 'row', 
         flex: 1, 
-        alignItems: 'flex-end', 
-        justifyContent: 'center',
+        alignItems: 'center', 
+        justifyContent: 'flex-end',
         verticalAlign: 'middle',
         padding: 10,
-        borderRadius: 8,
+        borderRadius: 8
     }
 })
